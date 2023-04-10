@@ -20,7 +20,8 @@ def getEntityIDs(envUrl, token):
     }
     # Entity Selector grabs all HOSTs that are in a RUNNING state and have the memoryTotal attribute defined
     # memoryTotal is an added property returned by the web request so we don't have to do any additional calls
-    url = envUrl + "/api/v2/entities?pageSize=2000&entitySelector=type(HOST),state(RUNNING),memoryTotal.exists()&from=now-365d&to=now&fields=+properties.memoryTotal"
+    # paasMemoryLimit is the actual used limit when using application-only monitoring - https://www.dynatrace.com/support/help/manage/monitoring-consumption/application-and-infrastructure-monitoring#application-only-monitoring
+    url = envUrl + "/api/v2/entities?pageSize=2000&entitySelector=type(HOST),state(RUNNING),memoryTotal.exists()&from=now-365d&to=now&fields=+properties.memoryTotal,+properties.paasMemoryLimit"
     entities = requests.get(url, headers=headers)
     return entities.json()['entities']
 
@@ -30,7 +31,10 @@ def getPhysicalMemory(envUrl, token, entities):
         try:
             # the memoryTotal is in number of bytes, dividing by 1024^3 will represent that in GB, calculations are done on whole number of GB so math.ceil rounds up by whole number
             # example: 31700000000 bytes is 31.7 GB -> 32 GB of RAM after ceiling function
-            RAM = int(math.ceil(int(entity['properties']['memoryTotal']) / (1024**3)))
+            if 'paasMemoryLimit' not in entity['properties']:
+                RAM = int(math.ceil(int(entity['properties']['memoryTotal']) / (1024**3)))
+            else:
+                RAM = int(math.ceil(int(entity['properties']['paasMemoryLimit']) / (1024**3)))
             RAMs.append(RAM)
         except Exception as e:
             print(entity['entityId'])
