@@ -3,9 +3,10 @@ import requests
 import math
 import os
 
-# Step 1 - get all entityIDs from /?pageSize=2000&entitySelector=type(HOST),state(RUNNING),memoryTotal.exists()&from=now-365d&to=now&fields=+properties.memoryTotal
-# Step 2 - get all physicalMemory from hosts with a state of "RUNNING"
-# Step 3 - for each host, calculate the application security unit based off physicalMemory
+# Step 1 - get all entityIDs with entitySelector
+# Step 2 - get all memory limits from hosts with a state of "RUNNING"
+# Step 2a - hosts with normal OneAgent injection will have memoryTotal property, application-only OneAgent injection will use paasMemoryLimit property
+# Step 3 - for each host, calculate the application security unit based off physicalMemory or paasMemoryLimit
 # Calculation table - https://www.dynatrace.com/support/help/shortlink/application-security-units#how-capabilities-affect-monitoring-consumption
 # Step 4 - show calculations for RVA and RVA & RAP options
 # Step 4a - after 80gb it follows the N x 16 rule, so after 80gb it will be 96, 112, etc. basically you can take the ram size and divide by 16
