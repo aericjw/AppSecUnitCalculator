@@ -24,7 +24,9 @@ This calculator only considers Hosts that are currently running and have memory 
 Projections will be done for every host in the environment, but you may use monitoring rules to only specify where Application Security is enabled:
 
 [Third-Party Vulnerability Monitoring Rules (RVA)](https://www.dynatrace.com/support/help/shortlink/tpv-monitoring-rules)
+
 [Code-Level Vulnerability Monitoring Rules (RVA)](https://www.dynatrace.com/support/help/shortlink/clv-monitoring-rules)
+
 [Application Protection Monitoring Rules (RAP)](https://www.dynatrace.com/support/help/shortlink/attack-rules)
 
 ## Support Policy
