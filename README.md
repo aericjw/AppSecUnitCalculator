@@ -33,4 +33,4 @@ Projections will be done for every host in the environment, but you may use moni
 THIS IS NOT PART OF THE DYNATRACE PRODUCT. This is meant to be a simple way to provide a projection on ASU consumption.
 
 ## Future Development
-The project is currently a command line script, which requires installing python and other modules which isn't always ideal or allowed. In development is a web-based Single Page Application (SPA) that can take the URL and API Token then print a resulting forecast through the browser.
+The project is currently a command line script, which requires installing python and other modules which isn't always ideal or allowed. In development is a web-based Single Page Application that can take the URL and API Token then print a resulting forecast through the browser. Also in development is a Dynatrace Custom App version of the calculator.
