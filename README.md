@@ -2,7 +2,7 @@
 A simple projection calculator to estimate ASU consumption in your Dynatrace Environment prior to enabling Application Security
 
 Read more about Application Security Units [here](https://www.dynatrace.com/support/help/shortlink/application-security-units)
-## Prerequisites
+## Prerequisites (Command Line)
 This script will require an API token created from your Dynatrace environment with the `entities.read` scope
 
 It will also require your tenant URL to be supplied without any leading slashes:
@@ -20,6 +20,8 @@ The script reads from the following environment variables:
 ## Entities considered for calculation
 This calculator only considers Hosts that are currently running and have memory properties detected. 
 
+PLEASE NOTE: This provides a simple projection, is a Host is using technologies not supported by AppSec, then ASUs will not be consumed.
+
 ### Monitoring Rules
 Projections will be done for every host in the environment, but you may use monitoring rules to only specify where Application Security is enabled:
 
@@ -32,5 +34,8 @@ Projections will be done for every host in the environment, but you may use moni
 ## Support Policy
 THIS IS NOT PART OF THE DYNATRACE PRODUCT. This is meant to be a simple way to provide a projection on ASU consumption.
 
+## Current Development
+A Dynatrace Custom App is currently being developed, all the relevant files are in the app-sec-unit-calculator directory.
+
 ## Future Development
-The project is currently a command line script, which requires installing python and other modules which isn't always ideal or allowed. In development is a web-based Single Page Application that can take the URL and API Token then print a resulting forecast through the browser. Also in development is a Dynatrace Custom App version of the calculator.
+The project is currently a command line script and a custom Dynatrace app, which requires installing tools which isn't always ideal or allowed. In development is a web-based Single Page Application that can take the URL and API Token then print a resulting forecast through the browser.
