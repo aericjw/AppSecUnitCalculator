@@ -1,0 +1,47 @@
+{
+  "name": "app-sec-unit-calculator",
+  "version": "0.0.0",
+  "description": "A starting project with routing, fetching Grail™ data, and charting",
+  "scripts": {
+    "build": "dt-app build --prod",
+    "start": "dt-app dev",
+    "generate:function": "dt-app generate function",
+    "uninstall": "dt-app uninstall",
+    "deploy": "dt-app deploy",
+    "update": "dt-app update",
+    "info": "dt-app info",
+    "help": "dt-app help",
+    "lint": "eslint .",
+    "test:api": "jest --config=api/jest.config.js"
+  },
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dynatrace/strato-components-preview": "0.96.0",
+    "@dynatrace-sdk/client-query": "1.2.0",
+    "@dynatrace-sdk/navigation": "1.0.0",
+    "@dynatrace-sdk/user-preferences": "1.0.0",
+    "@dynatrace-sdk/app-environment": "1.0.0",
+    "@dynatrace-sdk/error-handlers": "1.1.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^6.4.1"
+  },
+  "devDependencies": {
+    "dt-app": "0.101.1",
+    "@types/node": "^16.11.34",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "jest": "^27.4.7",
+    "@types/jest": "27.4.0",
+    "ts-jest": "^27.1.3"
+  }
+}
