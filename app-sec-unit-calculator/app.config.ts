@@ -6,7 +6,7 @@ const config: CliOptions = {
     name: 'AppSec Unit Calculator',
     version: '1.0.0',
     description: 'A simple projection calculator to estimate ASU consumption',
-    id: 'app.sec.unit.calculator',
+    id: 'my.app.sec.unit.calculator',
     scopes: [{ name: 'storage:logs:read', comment: 'default template' }, { name: 'storage:buckets:read', comment: 'default template' }, { name: 'environment-api:entities:read', comment: 'default template'}]
   },
 };
