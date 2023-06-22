@@ -20,7 +20,7 @@ The script reads from the following environment variables:
 ## Entities considered for calculation
 This calculator only considers Hosts that are currently running and have memory properties detected. 
 
-PLEASE NOTE: This provides a simple projection, is a Host is using technologies not supported by AppSec, then ASUs will not be consumed.
+PLEASE NOTE: This provides a simple projection, if a Host is using technologies not supported by AppSec, then ASUs will not be consumed.
 
 ### Monitoring Rules
 Projections will be done for every host in the environment, but you may use monitoring rules to only specify where Application Security is enabled:
