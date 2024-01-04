@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@dynatrace-sdk/client-classic-environment-v2": "^1.1.0"
-  }
-}

@@ -8,7 +8,8 @@ Read more about Application Security Licensing:
 
 The Dynatrace App Toolkit is necessary to deploy an application to your Dynatrace Environment
 ```
-npm install dt-app
+cd AppSecUnitCalculator/app-sec-unit-calculator
+npm install
 ```
 
 Configure `app.config.ts` to point to your Dynatrace Environment URL
