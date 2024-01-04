@@ -22,7 +22,7 @@ def getEntityIDs(envUrl, token):
     # Entity Selector grabs all HOSTs that are in a RUNNING state and have the memoryTotal attribute defined
     # memoryTotal is an added property returned by the web request so we don't have to do any additional calls
     # paasMemoryLimit is the actual used limit when using application-only monitoring - https://www.dynatrace.com/support/help/manage/monitoring-consumption/application-and-infrastructure-monitoring#application-only-monitoring
-    url = envUrl + "/api/v2/entities?pageSize=2000&entitySelector=type(HOST),state(RUNNING),memoryTotal.exists()&from=now-365d&to=now&fields=+properties.memoryTotal,+properties.paasMemoryLimit"
+    url = envUrl + "/api/v2/entities?pageSize=2000&entitySelector=type(HOST),state(RUNNING),toRelationships.isProcessOf(type(PROCESS_GROUP_INSTANCE),softwareTechnologies.type(NODE_JS,DOTNET,GO,JAVA,KUBERNETES,PHP)),memoryTotal.exists()&from=now-365d&to=now&fields=+properties.memoryTotal,+properties.paasMemoryLimit"
     entities = requests.get(url, headers=headers)
     return entities.json()['entities']
 
@@ -66,10 +66,10 @@ def main(envUrl, token):
     print("For Runtime Vulnerability Analytics and Runtime Application Protection, ASUs will be consumed at " + str(round(calculations[1],2)) + " units per hour")
 
 def init():
-    # DT_URL should not have the leading slash, example: https://guu84124.live.dynatrace.com
-    envUrl = os.environ.get("DT_URL")
-    # DT_API_TOKEN should have an API token with entities.read scope
-    token = os.environ.get("DT_API_TOKEN")
+    # DYNATRACE_ENV_URL should not have the leading slash, example: https://guu84124.live.dynatrace.com
+    envUrl = os.environ.get("DYNATRACE_ENV_URL")
+    # DYNATRACE_API_TOKEN should have an API token with entities.read scope
+    token = os.environ.get("DYNATRACE_API_TOKEN")
     main(envUrl, token)
 
 if __name__ == "__main__":

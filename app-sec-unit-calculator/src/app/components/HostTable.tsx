@@ -33,7 +33,7 @@ export const HostTable = ({data}: HostTableProps) => {
     return (
         <DataTable columns={columns} data={data} fullWidth>
         <DataTable.Toolbar>
-          <DataTable.Toolbar.DownloadData/>
+          <DataTable.DownloadData/>
         </DataTable.Toolbar>
         <DataTable.Pagination defaultPageSize={20}/>
         <DataTable.UserActions>

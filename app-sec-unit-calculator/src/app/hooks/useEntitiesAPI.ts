@@ -29,7 +29,7 @@ export const useEntitiesAPI = (): [Object[], number, number] => {
         const abortSignal = abortController.signal;
 
         const config: Object = {
-            entitySelector: "type(HOST),state(RUNNING),memoryTotal.exists()",
+            entitySelector: "type(HOST),state(RUNNING),toRelationships.isProcessOf(type(PROCESS_GROUP_INSTANCE),softwareTechnologies.type(NODE_JS,DOTNET,GO,JAVA,KUBERNETES,PHP)),memoryTotal.exists()",
             from: "now-365d",
             to: "now",
             fields: "+properties.memoryTotal,+properties.paasMemoryLimit",
